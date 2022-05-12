@@ -1,0 +1,73 @@
+﻿@model DemoMVC.Models.Ristorante
+
+<div>
+    <h4>Ristorante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Indirizzo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Indirizzo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCucina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCucina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vegano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vegano)
+        </dd>
+
+    </dl>
+</div>
+
+@if (Model.Recensioni != null && Model.Recensioni.Count >= 1)
+{
+    <p>Voto Medio delle Recensioni: @Model.Recensioni.Average(ristorante => ristorante.Voto) </p>
+    <div class="row">
+        @foreach (var recensione in Model.Recensioni)
+        {
+            <div class="panel panel-success col-md-4">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@recensione.Voto</h3>
+                </div>
+                <div class="panel-body">
+                    <span class="badge">@recensione.Data.ToShortDateString()</span>
+                    @recensione.Testo
+                </div>
+            </div>
+        }
+    </div>
+
+}
+else
+{
+    <p> Non sono disponibili recensioni</p>
+}
+<a href="/Ristoranti/AggiungiRecensioneARistorante/@Model.Id" class="btn btn-success">Aggiungi una recensione</a>
+
+
+
+
+<p>
+    <a href="/Ristoranti/Modifica/@Model.Id" class="btn btn-info">Modifica</a>
+    <a href="/Ristoranti/Index" class="btn btn-info">Torna alla lista</a>
+</p>

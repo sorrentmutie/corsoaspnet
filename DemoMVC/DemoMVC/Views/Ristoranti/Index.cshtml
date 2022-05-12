@@ -1,0 +1,46 @@
+﻿@using DemoMVC.Models
+@model List<Ristorante> 
+
+@{
+    var numeroRandom = new Random().NextDouble();
+}
+
+<h2>Lista dei ristoranti @numeroRandom</h2>
+
+<h3>
+    Numero ristoranti disponibili nella città di Napoli: @Model.Count
+</h3>
+
+<a class="btn btn-danger" href="/Ristoranti/Crea">Crea Nuovo Ristorante</a>
+
+<table class="table table-bordered table-striped table-hover" style="margin-top: 10px">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Cucina</th>
+            <th>Indirizzo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ristorante in Model)
+        {
+            <tr>
+                <td>@ristorante.Id</td>
+                <td>@ristorante.Nome</td>
+                <td>@ristorante.TipoCucina</td>
+                <td>@ristorante.Indirizzo</td>
+                <td>
+                    <a class="btn btn-info" href="/Ristoranti/Dettaglio/@ristorante.Id">Dettaglio</a>
+                    <a class="btn btn-warning" href="/Ristoranti/Modifica/@ristorante.Id">Modifica</a>
+                    <a class="btn btn-danger" href="/Ristoranti/Elimina/@ristorante.Id">Elimina</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+

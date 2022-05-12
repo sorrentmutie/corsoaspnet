@@ -1,0 +1,12 @@
+﻿@model DemoMVC.Models.Ristorante
+
+<h3>Sei sicuro di voler eliminare dalla lista il ristorante @Model.Nome ?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Elimina" class="btn btn-danger" /> 
+        <a class="btn btn-info" href="/Ristoranti/Index">Torna alla lista</a>
+    </div>
+}

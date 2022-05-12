@@ -1,0 +1,8 @@
+﻿@model IEnumerable<DemoMVC.ViewModels.ViewModelProdotto>
+
+<div class="row">
+    @foreach (var prodotto in Model)
+    {
+        @Html.Partial("_PannelloProdotto", prodotto)
+    }
+</div>
