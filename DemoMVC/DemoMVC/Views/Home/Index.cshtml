@@ -5,14 +5,24 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-            console.log('ciao');
-            $.get("/Fornitori/Esempio", function (dati)  {
-                console.log(dati);
-                var div = document.createElement("div");
-                div.innerText = dati.Nome;
-                document.body.appendChild(div);
-            })
+           // console.log('ciao');
+            //$.get("/Fornitori/Esempio", function (dati) {
+            //    console.log(dati);
+            //    var div = document.createElement("div");
+            //    div.innerText = dati.Nome;
+            //    document.body.appendChild(div);
+            //})
         });
+
+        //setTimeout(function () {
+        //    $.get("/Fornitori/Esempio", function (dati) {
+        //        console.log(dati);
+        //        var div = document.createElement("div");
+        //        div.innerText = dati.Nome;
+        //        document.body.appendChild(div);
+        //    })
+        //}, 10000);
+
     </script>
 }
 
@@ -30,5 +40,8 @@
 @Html.Partial("_PannelloProdotto", Model)
 
 
+@*@section MiaIntestazione {
+    <h3> Mia intestazione in index della HOme</h3>    
+}*@
 
 

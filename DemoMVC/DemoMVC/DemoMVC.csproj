@@ -295,6 +295,7 @@
     <Content Include="Views\Fornitori\Index.cshtml" />
     <Content Include="Views\Fornitori\Create.cshtml" />
     <Content Include="Views\Fornitori\Details.cshtml" />
+    <Content Include="Views\Shared\_MyLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

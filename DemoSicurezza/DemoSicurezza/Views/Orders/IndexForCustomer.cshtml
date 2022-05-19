@@ -1,0 +1,53 @@
+﻿@model DemoSicurezza.Models.OrdersPageForCustomerViewModel
+
+<h2>Fatture di @User.Identity.Name</h2>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Data</th>
+            <th scope="col">Totale</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var fattura in Model.Orders)
+        {
+            <tr>
+                <td>@fattura.OrderId</td>
+                <td>@(fattura.OrderDate  != null ? fattura.OrderDate.Value.ToShortDateString() : "") </td>
+                <td>@fattura.Total</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfOrders)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfOrders)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalOfOrders)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalOfOrders)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
